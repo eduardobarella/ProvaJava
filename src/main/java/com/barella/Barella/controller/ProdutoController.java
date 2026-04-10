@@ -38,7 +38,7 @@ public class ProdutoController {
                 .path("/produtos/{id}")
                 .buildAndExpand(requeste.getId())
                 .toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(requeste);
     }
     @PutMapping(path = "/{id}")
     public ResponseEntity<ProdutoModel> atualizarProduto(@RequestBody ProdutoModel produtoModel, @PathVariable Long id) {
